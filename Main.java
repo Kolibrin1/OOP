@@ -14,12 +14,12 @@ public class Main {
         Taxi taxi = new Taxi(avto.getMarka(), avto.getCapacity(),avto.getVolume(),tariff,distance,waitingtime);
         taxi.print();
         if((marka.equals("lada") || marka.equals("kia") || marka.equals("hyundai")) && (capacity <= 120))
-            taxi.retariff("Econom");
+            taxi.setTariff("Econom");
         else if((marka.equals("renault") || marka.equals("nissan")) && ((capacity > 120) && (capacity < 150)))
-            taxi.retariff("Comfort");
+            taxi.setTariff("Comfort");
         else if (capacity > 150)
-            taxi.retariff("Business");
+            taxi.setTariff("Business");
         taxi.print();
-        System.out.println(taxi.CallPrice(taxi));
+        System.out.println(taxi.CallPrice());
     }
 }
