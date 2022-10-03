@@ -40,31 +40,28 @@ public class Taxi extends Avto{
     public void setWaitingtime(int waitingtime) {
         this.waitingtime = waitingtime;
     }
-
-    void retariff(String tarif){
-        setTariff(tarif);
-    }
+    
     void print(){
         super.print();
         System.out.println("Tariff = " + getTariff() + " " + "Distance = " + getDistance() + " " + "Waiting Time = " + getWaitingtime());
     }
 
-    int CallPrice(Taxi taxi){
+    int CallPrice(){
         int price = 0;
-        if(taxi.getTariff().equals("Econom")) {
-            price += taxi.getDistance() * 30;
-            if (taxi.getWaitingtime() > 5)
-                price += (taxi.getWaitingtime() - 5) * 10;
+        if(tariff.equals("Econom")) {
+            price += distance * 30;
+            if (waitingtime > 5)
+                price += (waitingtime - 5) * 10;
         }
-        else if(taxi.getTariff().equals("Comfort")){
-            price += taxi.getDistance() * 40;
-            if (taxi.getWaitingtime() > 5)
-                price += (taxi.getWaitingtime() - 5) * 10;
+        else if(tariff.equals("Comfort")){
+            price += distance * 40;
+            if (waitingtime > 5)
+                price += (waitingtime - 5) * 10;
         }
         else{
-            price += taxi.getDistance() * 50;
-            if (taxi.getWaitingtime() > 5)
-                price += (taxi.getWaitingtime() - 5) * 10;
+            price += distance * 50;
+            if (waitingtime > 5)
+                price += (waitingtime - 5) * 10;
         }
         return price;
     }
